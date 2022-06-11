@@ -87,11 +87,15 @@ function fillBoard() {
 game logic 
 */
 let currentFocus = null;
+let row = true;
 
 function clearAll() {
     const nodes = board.children;
     for (let i = 0; i < nodes.length; i++) {
-        nodes[i].style.outlineColor = "gray";
+        if (nodes[i].getAttribute("class") == "tiles") {
+            nodes[i].style.outlineColor = "gray";
+            nodes[i].style.backgroundColor = "";
+        }
     }
 }
 
@@ -107,26 +111,37 @@ function highlight(row) {
     const nodes = board.children;
     const Xindex = parseInt(currentFocus.style.left) / 30;
     const Yindex = parseInt(currentFocus.style.top) / 30;
-    let first = true;
     const startIndex = getIndex(Xindex, Yindex);
     const highlightColor = "#ff0037";
     if (row) {
-
+        let i = 1;
+        while (boardLayout[Yindex][Xindex + i]) {
+            nodes[startIndex + (i * 25)].style.outlineColor = highlightColor;
+            nodes[startIndex + (i * 25)].style.backgroundColor = "lightGray";
+            i++;
+            if ((Xindex + i) > 24) break;
+        }
+        i = 1;
+        while (boardLayout[Yindex][Xindex - i]) {
+            nodes[startIndex - (i * 25)].style.outlineColor = highlightColor;
+            nodes[startIndex - (i * 25)].style.backgroundColor = "lightGray";
+            i++;
+            if ((Xindex - i) < 0) break;
+        }
     } else {
         let i = 0;
         while (boardLayout[Yindex + i][Xindex]) {
-            if ((Yindex + i) > 24) break;
-            console.log(i);
-            console.log(Yindex + i);
-            console.log(startIndex + i);
             nodes[startIndex + i].style.outlineColor = highlightColor;
+            nodes[startIndex + i].style.backgroundColor = "lightGray";
             i++;
+            if ((Yindex + i) > 24) break;
         }
         i = 0;
         while (boardLayout[Yindex - i][Xindex]) {
-            if ((Yindex - i) < 0) break;
             nodes[startIndex - i].style.outlineColor = highlightColor;
+            nodes[startIndex - i].style.backgroundColor = "lightGray";
             i++;
+            if ((Yindex - i) < 0) break;
         }
     }
 }
@@ -145,7 +160,7 @@ function input(e) {
     }
     currentFocus = e.target;
     currentFocus.style.backgroundColor = "gray";
-    highlight(false);
+    highlight(true);
 }
 
 /*
@@ -222,8 +237,56 @@ document.getElementById("getBoard").onclick = function() {
     console.log(boardLayout);
 }
 
+document.onkeyup = function(e) {
+    if (e.key.length != 1) return;
+    const letter = e.key.charAt(0);
+    if (letter.toLowerCase() != letter.toUpperCase()) return;
+    if (currentFocus == null) return;
+
+}
+
+function squareAvalible(x, y) {
+    return boardLayout(x, y);
+}
+
+function moveFocusUp() {
+    if (!squareAvalible()) return;
+}
+
+document.onkeydown = function(e) {
+    clearAll();
+    switch (e.key) {
+        case "ArrowUp":
+            if (row) {
+                highlight(false);
+            } else {
+                moveFocusUp();
+            }
+            break;
+        case "ArrowDown":
+            if (row) {
+                highlight(false);
+            } else {
+                moveFocusDown();
+            }
+            break;
+        case "ArrowLeft":
+            if (row) {
+                highlight(true);
+            } else {
+                moveFocusLeft();
+            }
+            break;
+        case "ArrowRight":
+            if (row) {
+                highlight(true);
+            } else {
+                moveFocusRight();
+            }
+            break;
+    }
+}
+
 createBoard();
 fillBoard();
-addGame();
-addGame();
 addGame();
