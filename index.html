@@ -3,13 +3,25 @@
 
 <head>
     <link rel="stylesheet" href="resources/style.css"></link>
+    <link rel="stylesheet" href="resources/customButton.css"></link>
 </head>
 
 <body>
+    <div id="photoBoard"></div>
     <div id="board"></div>
     </br>
-    <button id="makeBoard">Customize Board</button>
-    <button id="getBoard">get Board</button>
+    <button class="button-63" role="button" id="changeButton">See Progress</button>
+    <div id="bottom">
+        <div class="clueContainer" id="across">
+            <div class="title">Across</div>
+        </div>
+        <div class="clueContainer" id="verticle">
+            <div class="title">Verticle</div>
+        </div>
+    </div>
+    </br>
+    <button id="makeBoard" visibility="visible">Customize Board</button>
+    <button id="getBoard" visibility="visible">get Board</button>
     <script src="resources/createBoard.js"></script>
 </body>
 

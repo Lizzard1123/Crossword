@@ -1,4 +1,5 @@
 const board = document.getElementById("board");
+const tileSize = 30;
 let boardLayout = [
     [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
     [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
@@ -53,11 +54,26 @@ let boardLetters = [
     ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
     ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 ];
+
+const acrossCollum = document.getElementById("across");
+const verticleCollum = document.getElementById("verticle");
+
+const clues = [{
+    "clue": "alphabet spell it out",
+    "hint": "you should know this lol",
+    "start": { "x": 0, "y": 0 },
+    "row": false
+}, {
+    "clue": "try this",
+    "hint": "yah",
+    "start": { "x": 15, "y": 15 },
+    "row": true
+}];
 //creates a text tile
 function creatTile(x, y, black) {
     const tile = document.createElement("div");
-    tile.style.left = (x * 30) + "px";
-    tile.style.top = (y * 30) + "px";
+    tile.style.left = (x * tileSize) + "px";
+    tile.style.top = (y * tileSize) + "px";
     tile.setAttribute("class", (!black ? "edge" : "tiles"));
     board.appendChild(tile);
 }
@@ -78,6 +94,16 @@ function fillBoard() {
             nodes[index].innerHTML = boardLetters[o][i];
             index++;
         }
+    }
+}
+
+function populateClues() {
+    for (let i = 0; i < clues.length; i++) {
+        const clue = document.createElement("div");
+        clue.innerHTML = (i + 1) + ") " + clues[i].clue;
+        clue.setAttribute("class", "clue");
+        clue.addEventListener("click", goTo, false);
+        (clues[i].row ? acrossCollum : verticleCollum).appendChild(clue);
     }
 }
 
@@ -108,40 +134,41 @@ function getIndex(x, y) {
 }
 
 function highlight(row) {
+    clearAll();
     const nodes = board.children;
-    const Xindex = parseInt(currentFocus.style.left) / 30;
-    const Yindex = parseInt(currentFocus.style.top) / 30;
+    const Xindex = parseInt(currentFocus.style.left) / tileSize;
+    const Yindex = parseInt(currentFocus.style.top) / tileSize;
     const startIndex = getIndex(Xindex, Yindex);
     const highlightColor = "#ff0037";
+
+    currentFocus.style.backgroundColor = "gray";
+    currentFocus.style.outlineColor = highlightColor;
+
     if (row) {
         let i = 1;
-        while (boardLayout[Yindex][Xindex + i]) {
+        while (!((Xindex + i) > boardLayout.length - 1) && boardLayout[Yindex][Xindex + i]) {
             nodes[startIndex + (i * 25)].style.outlineColor = highlightColor;
             nodes[startIndex + (i * 25)].style.backgroundColor = "lightGray";
             i++;
-            if ((Xindex + i) > 24) break;
         }
         i = 1;
-        while (boardLayout[Yindex][Xindex - i]) {
+        while (!((Xindex - i) < 0) && boardLayout[Yindex][Xindex - i]) {
             nodes[startIndex - (i * 25)].style.outlineColor = highlightColor;
             nodes[startIndex - (i * 25)].style.backgroundColor = "lightGray";
             i++;
-            if ((Xindex - i) < 0) break;
         }
     } else {
-        let i = 0;
-        while (boardLayout[Yindex + i][Xindex]) {
+        let i = 1;
+        while (!((Yindex + i) > boardLayout.length - 1) && boardLayout[Yindex + i][Xindex]) {
             nodes[startIndex + i].style.outlineColor = highlightColor;
             nodes[startIndex + i].style.backgroundColor = "lightGray";
             i++;
-            if ((Yindex + i) > 24) break;
         }
-        i = 0;
-        while (boardLayout[Yindex - i][Xindex]) {
+        i = 1;
+        while (!((Yindex - i) < 0) && boardLayout[Yindex - i][Xindex]) {
             nodes[startIndex - i].style.outlineColor = highlightColor;
             nodes[startIndex - i].style.backgroundColor = "lightGray";
             i++;
-            if ((Yindex - i) < 0) break;
         }
     }
 }
@@ -160,7 +187,15 @@ function input(e) {
     }
     currentFocus = e.target;
     currentFocus.style.backgroundColor = "gray";
-    highlight(true);
+    highlight(row);
+}
+
+function goTo(e) {
+    e = e.target;
+    const num = parseInt(e.innerHTML[0]) - 1;
+    const info = clues[num];
+    currentFocus = board.children[getIndex(info.start.x, info.start.y)];
+    highlight(info.row);
 }
 
 /*
@@ -174,8 +209,8 @@ let inDev = false;
 //swaps between tile and edge
 function swap(e) {
     e = e.target;
-    const Xindex = parseInt(e.style.left) / 30;
-    const Yindex = parseInt(e.style.top) / 30;
+    const Xindex = parseInt(e.style.left) / tileSize;
+    const Yindex = parseInt(e.style.top) / tileSize;
     if (e.getAttribute("class") == "edge") {
         e.setAttribute("class", "tiles");
         boardLayout[Yindex][Xindex] = true;
@@ -190,7 +225,7 @@ function swap(e) {
 function addSwap() {
     const nodes = board.children;
     for (let i = 0; i < nodes.length; i++) {
-        nodes[i].addEventListener("click", swap, false);
+        nodes[i].addEventListener("mouseover", swap, false);
     }
 }
 
@@ -198,7 +233,7 @@ function addSwap() {
 function removeSwap() {
     const nodes = board.children;
     for (let i = 0; i < nodes.length; i++) {
-        nodes[i].removeEventListener("click", swap, false);
+        nodes[i].removeEventListener("mouseover", swap, false);
     }
 }
 
@@ -237,56 +272,112 @@ document.getElementById("getBoard").onclick = function() {
     console.log(boardLayout);
 }
 
+// end dev tools
+
 document.onkeyup = function(e) {
     if (e.key.length != 1) return;
     const letter = e.key.charAt(0);
-    if (letter.toLowerCase() != letter.toUpperCase()) return;
+    if (letter.toLowerCase() == letter.toUpperCase()) return;
     if (currentFocus == null) return;
 
+    const info = getInfo(currentFocus);
+    boardLetters[info.x][info.y] = letter;
+    board.children[getIndex(info.x, info.y)].innerHTML = letter;
+}
+
+function getInfo(focus) {
+    const obj = {
+        "x": parseInt(focus.style.left) / tileSize,
+        "y": parseInt(focus.style.top) / tileSize
+    };
+    return obj;
 }
 
 function squareAvalible(x, y) {
-    return boardLayout(x, y);
+    return boardLayout[y][x];
 }
 
-function moveFocusUp() {
-    if (!squareAvalible()) return;
+function moveFocusUp(focus) {
+    if (focus.y - 1 < 0) return;
+    if (!squareAvalible(focus.x, focus.y - 1)) return;
+    currentFocus.style.backgroundColor = "lightGray";
+    currentFocus = board.children[getIndex(focus.x, focus.y - 1)];
+    currentFocus.style.backgroundColor = "gray";
+}
+
+function moveFocusDown(focus) {
+    if (focus.y + 1 > boardLayout.length - 1) return;
+    if (!squareAvalible(focus.x, focus.y + 1)) return;
+    currentFocus.style.backgroundColor = "lightGray";
+    currentFocus = board.children[getIndex(focus.x, focus.y + 1)];
+    currentFocus.style.backgroundColor = "gray";
+}
+
+function moveFocusRight(focus) {
+    if (focus.x + 1 > boardLayout.length - 1) return;
+    if (!squareAvalible(focus.x + 1, focus.y)) return;
+    currentFocus.style.backgroundColor = "lightGray";
+    currentFocus = board.children[getIndex(focus.x + 1, focus.y)];
+    currentFocus.style.backgroundColor = "gray";
+}
+
+function moveFocusLeft(focus) {
+    if (focus.x - 1 < 0) return;
+    if (!squareAvalible(focus.x - 1, focus.y)) return;
+    currentFocus.style.backgroundColor = "lightGray";
+    currentFocus = board.children[getIndex(focus.x - 1, focus.y)];
+    currentFocus.style.backgroundColor = "gray";
 }
 
 document.onkeydown = function(e) {
-    clearAll();
+    if (currentFocus == null) return;
+    e.preventDefault();
+    const focus = getInfo(currentFocus);
     switch (e.key) {
         case "ArrowUp":
             if (row) {
                 highlight(false);
-            } else {
-                moveFocusUp();
+                row = false;
             }
+            moveFocusUp(focus);
             break;
         case "ArrowDown":
             if (row) {
                 highlight(false);
-            } else {
-                moveFocusDown();
+                row = false;
             }
+            moveFocusDown(focus);
             break;
         case "ArrowLeft":
-            if (row) {
+            if (!row) {
                 highlight(true);
-            } else {
-                moveFocusLeft();
+                row = true;
             }
+            moveFocusLeft(focus);
             break;
         case "ArrowRight":
-            if (row) {
+            if (!row) {
                 highlight(true);
-            } else {
-                moveFocusRight();
+                row = true;
             }
+            moveFocusRight(focus);
             break;
     }
 }
 
+//visuals for collage
+
+const changeButton = document.getElementById("changeButton");
+let visible = true;
+
+changeButton.onclick = function() {
+    document.getElementById("bottom").setAttribute("class", (!visible ? "fadeIn" : "fadeOut "));
+    document.getElementById("board").setAttribute("class", (!visible ? "fadeIn" : "fadeOut "));
+    changeButton.innerHTML = (visible ? "Return to Game" : "See Progress");
+    visible = !visible;
+};
+
 createBoard();
 fillBoard();
 addGame();
+populateClues();

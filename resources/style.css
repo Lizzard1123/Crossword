@@ -38,3 +38,74 @@ div {
 body {
     background-color: rgb(70, 138, 194);
 }
+
+#bottom {
+    position: relative;
+    top: 0px;
+    width: 750px;
+    height: 500px;
+    margin: auto;
+}
+
+.clueContainer {
+    position: absolute;
+    width: 350px;
+    height: 500px;
+}
+
+#across {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#verticle {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.title {
+    height: 50px;
+    font-size: 45px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.clue {
+    text-align: center;
+    height: 25px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}
+
+.clue:hover {
+    color: rgb(57, 57, 57);
+    cursor: zoom-in;
+}
+
+#photoBoard {
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.fadeOut {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+}
+
+.fadeIn {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 2s linear;
+}
