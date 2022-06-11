@@ -62,12 +62,14 @@ const clues = [{
     "clue": "alphabet spell it out",
     "hint": "you should know this lol",
     "start": { "x": 0, "y": 0 },
-    "row": false
+    "row": false,
+    "img": "/photos"
 }, {
     "clue": "try this",
     "hint": "yah",
     "start": { "x": 15, "y": 15 },
-    "row": true
+    "row": true,
+    "img": "/photos"
 }];
 //creates a text tile
 function creatTile(x, y, black) {
@@ -195,7 +197,8 @@ function goTo(e) {
     const num = parseInt(e.innerHTML[0]) - 1;
     const info = clues[num];
     currentFocus = board.children[getIndex(info.start.x, info.start.y)];
-    highlight(info.row);
+    row = info.row;
+    highlight(row);
 }
 
 /*
@@ -225,7 +228,7 @@ function swap(e) {
 function addSwap() {
     const nodes = board.children;
     for (let i = 0; i < nodes.length; i++) {
-        nodes[i].addEventListener("mouseover", swap, false);
+        nodes[i].addEventListener("mouseover" /*"click"*/ , swap, false);
     }
 }
 
@@ -233,7 +236,7 @@ function addSwap() {
 function removeSwap() {
     const nodes = board.children;
     for (let i = 0; i < nodes.length; i++) {
-        nodes[i].removeEventListener("mouseover", swap, false);
+        nodes[i].removeEventListener("mouseover" /*"click"*/ , swap, false);
     }
 }
 
@@ -274,29 +277,6 @@ document.getElementById("getBoard").onclick = function() {
 
 // end dev tools
 
-document.onkeyup = function(e) {
-    if (e.key.length != 1) return;
-    const letter = e.key.charAt(0);
-    if (letter.toLowerCase() == letter.toUpperCase()) return;
-    if (currentFocus == null) return;
-
-    const info = getInfo(currentFocus);
-    boardLetters[info.x][info.y] = letter;
-    board.children[getIndex(info.x, info.y)].innerHTML = letter;
-}
-
-function getInfo(focus) {
-    const obj = {
-        "x": parseInt(focus.style.left) / tileSize,
-        "y": parseInt(focus.style.top) / tileSize
-    };
-    return obj;
-}
-
-function squareAvalible(x, y) {
-    return boardLayout[y][x];
-}
-
 function moveFocusUp(focus) {
     if (focus.y - 1 < 0) return;
     if (!squareAvalible(focus.x, focus.y - 1)) return;
@@ -327,6 +307,34 @@ function moveFocusLeft(focus) {
     currentFocus.style.backgroundColor = "lightGray";
     currentFocus = board.children[getIndex(focus.x - 1, focus.y)];
     currentFocus.style.backgroundColor = "gray";
+}
+
+document.onkeyup = function(e) {
+    if (e.key.length != 1) return;
+    const letter = e.key.charAt(0);
+    if (letter.toLowerCase() == letter.toUpperCase()) return;
+    if (currentFocus == null) return;
+
+    const info = getInfo(currentFocus);
+    boardLetters[info.x][info.y] = letter;
+    board.children[getIndex(info.x, info.y)].innerHTML = letter;
+    if (row) {
+        moveFocusRight(info);
+    } else {
+        moveFocusDown(info);
+    }
+}
+
+function getInfo(focus) {
+    const obj = {
+        "x": parseInt(focus.style.left) / tileSize,
+        "y": parseInt(focus.style.top) / tileSize
+    };
+    return obj;
+}
+
+function squareAvalible(x, y) {
+    return boardLayout[y][x];
 }
 
 document.onkeydown = function(e) {
@@ -362,6 +370,15 @@ document.onkeydown = function(e) {
             }
             moveFocusRight(focus);
             break;
+        case "Backspace":
+            if (row) {
+                moveFocusLeft(focus);
+            } else {
+                moveFocusUp(focus)
+            }
+            boardLetters[focus.x][focus.y] = "";
+            board.children[getIndex(focus.x, focus.y)].innerHTML = "";
+            break;
     }
 }
 
@@ -376,6 +393,17 @@ changeButton.onclick = function() {
     changeButton.innerHTML = (visible ? "Return to Game" : "See Progress");
     visible = !visible;
 };
+
+function rotateAndPaintImage(context, image, angleInRad, positionX, positionY, axisX, axisY) {
+    context.translate(positionX, positionY);
+    context.rotate(angleInRad);
+    context.drawImage(image, -axisX, -axisY);
+    context.rotate(-angleInRad);
+    context.translate(-positionX, -positionY);
+}
+
+
+// setup page
 
 createBoard();
 fillBoard();
