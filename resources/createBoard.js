@@ -1,31 +1,681 @@
 const board = document.getElementById("board");
 const tileSize = 30;
 let boardLayout = [
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
+    [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+    ],
+    [
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+    ],
+    [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+    ],
+    [
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false
+    ],
+    [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false
+    ],
+    [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false
+    ],
+    [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false
+    ],
+    [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+    ],
+    [
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+    ],
+    [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+    ],
+    [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+    ],
+    [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+    ],
+    [
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+    ],
+    [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+    ],
+    [
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+    ],
+    [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+    ],
+    [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+    ],
+    [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+    ],
+    [
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+    ],
+    [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+    ],
+    [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false
+    ],
+    [
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+    ],
+    [
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+    ],
+    [
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+    ],
+    [
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false
+    ]
 ];
 let boardLetters = [
     ["a", "b", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
@@ -59,17 +709,525 @@ const acrossCollum = document.getElementById("across");
 const verticleCollum = document.getElementById("verticle");
 
 const clues = [{
-    "clue": "alphabet spell it out",
-    "hint": "you should know this lol",
+    "clue": "The best 3D printer ever made",
+    "hint": "We watched the V3 together",
+    "answer": "positron",
+    "comment": "Better engineering than F1",
+    "start": { "x": 5, "y": 9 },
+    "row": true,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/Krylin-Positron-3d-printer-624.jpeg"
+    }
+}, {
+    "clue": "What is in the pot",
+    "hint": "I think there is something",
+    "answer": "nothing",
+    "comment": "mmmmmmhmmmm",
+    "start": { "x": 12, "y": 4 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/IMG_1992.PNG"
+    }
+}, {
+    "clue": "The answer to the pot is a ___",
+    "hint": "I know you dont want to hurt my feelings",
+    "answer": "lie",
+    "comment": "Still curious",
+    "start": { "x": 13, "y": 11 },
+    "row": true,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": ""
+    }
+}, {
+    "clue": "You are such a ___ man",
+    "hint": "Compliment?",
+    "answer": "ruggedly_handsome",
+    "comment": "At least in my eyes",
+    "start": { "x": 7, "y": 14 },
+    "row": true,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "Name of first robot",
+    "hint": "It would be in the source code",
+    "answer": "Fidel_Castro",
+    "comment": "What started with a joke lead to a great team",
+    "start": { "x": 3, "y": 18 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/IMG_2013.jpg"
+    }
+}, {
+    "clue": "Name of the subsequent 2 robots",
+    "hint": "you dont get one",
+    "answer": "Bongo",
+    "comment": "Never forget that he met Obama",
+    "start": { "x": 6, "y": 5 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/EB3AB04A-F85F-4A70-AA64-AE7F6A4BF7BD.png"
+    }
+}, {
+    "clue": "How many elim matches did we win this season in robotics (in my native language)",
+    "hint": "English lol",
+    "answer": "zero",
+    "comment": "100% catie",
+    "start": { "x": 10, "y": 2 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "Dog",
+    "hint": "Tyler's too now",
+    "answer": "Ranger",
+    "comment": "Tongue deep in my dog",
+    "start": { "x": 10, "y": 4 },
+    "row": true,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "Dog",
+    "hint": "My sister",
+    "answer": "Lily",
+    "comment": "zoomies",
+    "start": { "x": 10, "y": 20 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/700CA4F0-3233-4802-98B2-2E42911DE37D.png"
+    }
+}, {
+    "clue": "Thanks for telling me he's white /s",
+    "hint": "GHP buddy",
+    "answer": "Richard",
+    "comment": "Shame on me for assuming a steryotype",
+    "start": { "x": 9, "y": 7 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": ""
+    }
+}, {
+    "clue": "He forgot the condiments :(",
+    "hint": "Best engineering teacher we had",
+    "answer": "Johnson",
+    "comment": "I DONT WANT NONE OF THAT GAY CRAP IN MY CLASSROOM",
+    "start": { "x": 0, "y": 7 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
     "start": { "x": 0, "y": 0 },
     "row": false,
-    "img": "/photos"
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
 }, {
-    "clue": "try this",
-    "hint": "yah",
-    "start": { "x": 15, "y": 15 },
-    "row": true,
-    "img": "/photos"
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
+}, {
+    "clue": "",
+    "hint": "",
+    "answer": "",
+    "comment": "",
+    "start": { "x": 0, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "/resources/photos/vscodeNewIcon.png"
+    }
 }];
 //creates a text tile
 function creatTile(x, y, black) {
@@ -109,6 +1267,21 @@ function populateClues() {
     }
 }
 
+let shading = false;
+const shadeButton = document.getElementById("toggleShading");
+
+function toggleShade() {
+    if (shading) {
+        document.getElementById("across").style.backgroundColor = "";
+        document.getElementById("verticle").style.backgroundColor = "";
+    } else {
+        document.getElementById("across").style.backgroundColor = "rgba(255,255,255,0.5)";
+        document.getElementById("verticle").style.backgroundColor = "rgba(255,255,255,0.5)";
+    }
+    shading = !shading;
+}
+
+shadeButton.addEventListener("click", toggleShade);
 
 
 /*
@@ -189,6 +1362,8 @@ function input(e) {
     }
     currentFocus = e.target;
     currentFocus.style.backgroundColor = "gray";
+    const info = getInfo(currentFocus);
+    console.log([info.x, info.y]);
     highlight(row);
 }
 
@@ -228,7 +1403,7 @@ function swap(e) {
 function addSwap() {
     const nodes = board.children;
     for (let i = 0; i < nodes.length; i++) {
-        nodes[i].addEventListener("mouseover" /*"click"*/ , swap, false);
+        nodes[i].addEventListener("click", swap, false);
     }
 }
 
@@ -236,7 +1411,7 @@ function addSwap() {
 function removeSwap() {
     const nodes = board.children;
     for (let i = 0; i < nodes.length; i++) {
-        nodes[i].removeEventListener("mouseover" /*"click"*/ , swap, false);
+        nodes[i].removeEventListener("click", swap, false);
     }
 }
 
@@ -386,6 +1561,8 @@ document.onkeydown = function(e) {
 
 const changeButton = document.getElementById("changeButton");
 let visible = true;
+const TO_RADIANS = Math.PI / 180;
+ctx = document.getElementById("canvas").getContext("2d");
 
 changeButton.onclick = function() {
     document.getElementById("bottom").setAttribute("class", (!visible ? "fadeIn" : "fadeOut "));
@@ -393,6 +1570,7 @@ changeButton.onclick = function() {
     changeButton.innerHTML = (visible ? "Return to Game" : "See Progress");
     visible = !visible;
 };
+
 
 function rotateAndPaintImage(context, image, angleInRad, positionX, positionY, axisX, axisY) {
     context.translate(positionX, positionY);
@@ -402,6 +1580,13 @@ function rotateAndPaintImage(context, image, angleInRad, positionX, positionY, a
     context.translate(-positionX, -positionY);
 }
 
+function addImage(info) {
+    if (info.img == null) return;
+    info = info.img;
+    const img = new Image();
+    img.src = info.src;
+    rotateAndPaintImage(ctx, img, info.rotation, info.x, info.y, info.width / 2, info.height / 2);
+}
 
 // setup page
 
