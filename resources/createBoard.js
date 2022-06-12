@@ -741,12 +741,7 @@ const clues = [{
     "comment": "Still curious",
     "start": { "x": 13, "y": 11 },
     "row": true,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": ""
-    }
+    "img": null
 }, {
     "clue": "You are such a ___ man",
     "hint": "Compliment?",
@@ -758,7 +753,7 @@ const clues = [{
         "x": 0,
         "y": 0,
         "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
+        "src": "resources/photos/IMG_0630.PNG"
     }
 }, {
     "clue": "Name of first robot",
@@ -797,7 +792,7 @@ const clues = [{
         "x": 0,
         "y": 0,
         "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
+        "src": "resources/photos/65545232758__DF05CB9B-E22D-4FD7-9644-CD79DCFF7738_Original.png"
     }
 }, {
     "clue": "Dog",
@@ -810,7 +805,7 @@ const clues = [{
         "x": 0,
         "y": 0,
         "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
+        "src": "resources/photos/700CA4F0-3233-4802-98B2-2E42911DE37D.png"
     }
 }, {
     "clue": "Dog",
@@ -819,12 +814,7 @@ const clues = [{
     "comment": "zoomies",
     "start": { "x": 10, "y": 20 },
     "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "resources/photos/700CA4F0-3233-4802-98B2-2E42911DE37D.png"
-    }
+    "img": null
 }, {
     "clue": "Thanks for telling me he's white /s",
     "hint": "GHP buddy",
@@ -832,12 +822,7 @@ const clues = [{
     "comment": "Shame on me for assuming a steryotype",
     "start": { "x": 9, "y": 7 },
     "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": ""
-    }
+    "img": null
 }, {
     "clue": "He forgot the condiments :(",
     "hint": "Best engineering teacher we had",
@@ -849,14 +834,297 @@ const clues = [{
         "x": 0,
         "y": 0,
         "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
+        "src": "resources/photos/IMG_4083.png"
     }
 }, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
+    "clue": "Pimp mommy",
+    "hint": "Psych",
+    "answer": "Erin",
+    "comment": "Odd",
+    "start": { "x": 16, "y": 0 },
+    "row": false,
+    "img": null
+}, {
+    "clue": "You weren't there but can't stop telling the story",
+    "hint": "What he said",
+    "answer": "its_leaking",
+    "comment": "It would have been so much better if you were there",
+    "start": { "x": 4, "y": 10 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/516BD91C-AB56-4F57-A64A-61B71F9ED294.png"
+    }
+}, {
+    "clue": "The much awaited sequel to brotherly love",
+    "hint": ";)",
+    "answer": "sisterly_love",
     "comment": "",
+    "start": { "x": 7, "y": 9 },
+    "row": false,
+    "img": null
+}, {
+    "clue": "This is his name off hours",
+    "hint": "not chuck",
+    "answer": "charlie",
+    "comment": "",
+    "start": { "x": 1, "y": 18 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/IMG_1298.PNG"
+    }
+}, {
+    "clue": "Hawaiian",
+    "hint": "shirt",
+    "answer": "fridays",
+    "comment": "Every friday is Hawaiian friday.... duh",
+    "start": { "x": 16, "y": 18 },
+    "row": true,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/IMG_0446.png"
+    }
+}, {
+    "clue": "Totally not jealous you got in and I didn't",
+    "hint": "Tech",
+    "answer": "gtri",
+    "comment": "Worked out in the end with summer school i guess",
+    "start": { "x": 6, "y": 12 },
+    "row": true,
+    "img": null
+}, {
+    "clue": "The other thing I'm totally not jealous over",
+    "hint": "Harrison got it too lol",
+    "answer": "ghp",
+    "comment": "Blame it on covid /j",
+    "start": { "x": 9, "y": 14 },
+    "row": false,
+    "img": null
+}, {
+    "clue": "The other other thing I'm not jealous of",
+    "hint": "rocket go brrrrr",
+    "answer": "isef",
+    "comment": "I could have made a stovetop too /j",
+    "start": { "x": 5, "y": 21 },
+    "row": true,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/IMG_1679.png"
+    }
+}, {
+    "clue": "Nicholas cage's biggest fear",
+    "hint": "bane of arthropods",
+    "answer": "bees",
+    "comment": "To my knowlege this is the only movie you love dearly enough to quote",
+    "start": { "x": 1, "y": 12 },
+    "row": true,
+    "img": null
+}, {
+    "clue": "This animal learned what a gravitron was",
+    "hint": "Tires",
+    "answer": "opossum",
+    "comment": "not my fault",
+    "start": { "x": 14, "y": 16 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/67465738121__D671B8E9-CEAE-490C-880A-6E2B179E957D.png"
+    }
+}, {
+    "clue": "The sport we're gonna go pro in",
+    "hint": "The only time you're up top",
+    "answer": "beach_volleyball",
+    "comment": "",
+    "start": { "x": 21, "y": 7 },
+    "row": false,
+    "img": null
+}, {
+    "clue": "International science and ____ fair",
+    "hint": "you were so proud of yourself for this one",
+    "answer": "infidelity",
+    "comment": "Where the best and brightest people meet",
+    "start": { "x": 1, "y": 23 },
+    "row": true,
+    "img": null
+}, {
+    "clue": "You only got detention because it was subpar joke placement",
+    "hint": "Egg teacher",
+    "answer": "kozlowski",
+    "comment": "Wish I would have had her as a teacher",
+    "start": { "x": 8, "y": 2 },
+    "row": true,
+    "img": null
+}, {
+    "clue": "____ are responsible for building all pyramids including the Louvre",
+    "hint": "AirBnB Dallas craze",
+    "answer": "mollusks",
+    "comment": "",
+    "start": { "x": 4, "y": 0 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/IMG_2018.jpg"
+    }
+}, {
+    "clue": "Who is better at physics",
+    "hint": "Not us",
+    "answer": "tjhill",
+    "comment": "He better be the first person you hire with your buisness",
+    "start": { "x": 12, "y": 18 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/IMG_2019.jpg"
+    }
+}, {
+    "clue": "How many questions did we record 笨蛋 asking?",
+    "hint": "johnathan",
+    "answer": "five_hundred_and_three",
+    "comment": "I hate this kid /j",
+    "start": { "x": 19, "y": 3 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/IMG_E549CC4D2A01-1.jpeg"
+    }
+}, {
+    "clue": "Apparently being lazy and not painting makes you an amazing engineer /s",
+    "hint": "you strapped your phone to your car steering wheel to feel like a ___ driver",
+    "answer": "formula_one",
+    "comment": "I only like colored cars",
+    "start": { "x": 23, "y": 4 },
+    "row": false,
+    "img": null
+}, {
+    "clue": "May she Rest In Peace",
+    "hint": "Chem",
+    "answer": "mary_clark",
+    "comment": "o7",
+    "start": { "x": 17, "y": 7 },
+    "row": false,
+    "img": null
+}, {
+    "clue": "Bongo is a",
+    "hint": "snake",
+    "answer": "sock",
+    "comment": "Still angry",
+    "start": { "x": 3, "y": 1 },
+    "row": true,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/ur,socks_flatlay_medium,square,600x600-bg,f8f8f8.1.jpg"
+    }
+}, {
+    "clue": "Robotics team game time: MARRY",
+    "hint": "not me :(",
+    "answer": "Catie",
+    "comment": "I'm heartbroken fyi",
+    "start": { "x": 12, "y": 0 },
+    "row": true,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/IMG_82CBF9A1433B-1.jpeg"
+    }
+}, {
+    "clue": "Robotics team Game time: FUCK",
+    "hint": "Do you really need a hint",
+    "answer": "Tyler",
+    "comment": "Jealous",
+    "start": { "x": 11, "y": 11 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/IMG_6BA260AE700E-1.jpeg"
+    }
+}, {
+    "clue": "Robotics team game time: KILL",
+    "hint": "Prob deserve this",
+    "answer": "ethan",
+    "comment": "Id win the fight though so idk...",
+    "start": { "x": 18, "y": 20 },
+    "row": true,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/IMG_DAEB91A16494-1.jpeg"
+    }
+}, {
+    "clue": "Faster than Google Earth",
+    "hint": "tall",
+    "answer": "Daniel",
+    "comment": "literally the worldiest man of us all",
+    "start": { "x": 15, "y": 7 },
+    "row": false,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/IMG_1405.png"
+    }
+}, {
+    "clue": "The only Music",
+    "hint": "I listened to a couple during the frc trip",
+    "answer": "sabaton",
+    "comment": "still not better than a good ol audiobook",
+    "start": { "x": 1, "y": 10 },
+    "row": false,
+    "img": null
+}, {
+    "clue": "This shouldn't be music: Electric ___",
+    "hint": "on way back from Armour's",
+    "answer": "polka",
+    "comment": "not my groove lol",
+    "start": { "x": 2, "y": 3 },
+    "row": true,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/IMG_0672.png"
+    }
+}, {
+    "clue": "SWE big 5",
+    "hint": "facebook still a thing apparently",
+    "answer": "faang",
+    "comment": "With all those leetcode questions you are doing, this is us at FAANG",
     "start": { "x": 0, "y": 0 },
+    "row": true,
+    "img": {
+        "x": 0,
+        "y": 0,
+        "z-index": 0,
+        "src": "resources/photos/IMG_37F430EA7233-1.jpeg"
+    }
+}, {
+    "clue": "Face pillow",
+    "hint": "there was a Rick and Morty episode with him as a boar",
+    "answer": "Elon",
+    "comment": "It won't be too late to work for/with him don't worry",
+    "start": { "x": 1, "y": 5 },
     "row": false,
     "img": {
         "x": 0,
@@ -865,369 +1133,26 @@ const clues = [{
         "src": "/resources/photos/vscodeNewIcon.png"
     }
 }, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
+    "clue": "You have all the merch",
+    "hint": "car",
+    "answer": "tesla",
+    "comment": "hats, belts, underwear, ties, you name it...",
+    "start": { "x": 1, "y": 14 },
     "row": false,
     "img": {
         "x": 0,
         "y": 0,
         "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
+        "src": "resources/photos/IMG_0664.png"
     }
 }, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
+    "clue": "(Not a trick question I swear) what is the best rocket company",
+    "hint": "you 3d printed one",
+    "answer": "spacex",
+    "comment": "Isn't this why you're going into ASE?",
+    "start": { "x": 15, "y": 23 },
     "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
-}, {
-    "clue": "",
-    "hint": "",
-    "answer": "",
-    "comment": "",
-    "start": { "x": 0, "y": 0 },
-    "row": false,
-    "img": {
-        "x": 0,
-        "y": 0,
-        "z-index": 0,
-        "src": "/resources/photos/vscodeNewIcon.png"
-    }
+    "img": null
 }];
 //creates a text tile
 function creatTile(x, y, black) {
