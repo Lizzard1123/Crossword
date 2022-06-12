@@ -38,20 +38,21 @@ div {
 
 body {
     background-color: rgb(70, 138, 194);
+    overflow-x: hidden;
 }
 
 #bottom {
     position: relative;
     top: 20px;
     width: 750px;
-    height: 1500px;
+    height: 1100px;
     margin: auto;
 }
 
 .clueContainer {
     position: absolute;
     width: 350px;
-    height: 500px;
+    height: 1000px;
 }
 
 #across {
@@ -91,12 +92,19 @@ body {
 }
 
 #photoBoard {
-    z-index: -1;
-    width: 100%;
-    height: 100%;
+    width: 1400px;
+    height: 1900px;
     position: absolute;
-    left: 0;
-    top: 0;
+    left: calc((100% - 1400px)/2);
+    margin: auto;
+    border: 3px solid black;
+    overflow: hidden;
+}
+
+img {
+    position: absolute;
+    opacity: 1;
+    transition: opacity 0s 2s, opacity 2s linear;
 }
 
 .fadeOut {
@@ -109,4 +117,26 @@ body {
     visibility: visible;
     opacity: 1;
     transition: opacity 2s linear;
+}
+
+#commentBox {
+    position: absolute;
+    right: -350px;
+    top: 20px;
+    border: 5px solid black;
+    width: 300px;
+    border-radius: 15px;
+    z-index: 1;
+}
+
+.comeOut {
+    transform: translateX(-350px);
+    transition-duration: 1s;
+    transition-property: transform;
+}
+
+.goIn {
+    transform: translateX(350px);
+    transition-duration: 1s;
+    transition-property: transform;
 }
