@@ -678,8 +678,8 @@ let boardLayout = [
     ]
 ];
 let boardLetters = [
-    ["a", "b", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "c", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
     ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
     ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
     ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
@@ -714,6 +714,7 @@ const clues = [{
     "answer": "positron",
     "comment": "Better engineering than F1",
     "start": { "x": 5, "y": 9 },
+    "found": false,
     "row": true,
     "img": {
         "x": 0,
@@ -727,6 +728,7 @@ const clues = [{
     "answer": "nothing",
     "comment": "mmmmmmhmmmm",
     "start": { "x": 12, "y": 4 },
+    "found": false,
     "row": false,
     "img": {
         "x": 0,
@@ -740,6 +742,7 @@ const clues = [{
     "answer": "lie",
     "comment": "Still curious",
     "start": { "x": 13, "y": 11 },
+    "found": false,
     "row": true,
     "img": null
 }, {
@@ -748,6 +751,7 @@ const clues = [{
     "answer": "ruggedly_handsome",
     "comment": "At least in my eyes",
     "start": { "x": 7, "y": 14 },
+    "found": false,
     "row": true,
     "img": {
         "x": 0,
@@ -761,7 +765,8 @@ const clues = [{
     "answer": "Fidel_Castro",
     "comment": "What started with a joke lead to a great team",
     "start": { "x": 3, "y": 18 },
-    "row": false,
+    "found": false,
+    "row": true,
     "img": {
         "x": 0,
         "y": 0,
@@ -774,6 +779,7 @@ const clues = [{
     "answer": "Bongo",
     "comment": "Never forget that he met Obama",
     "start": { "x": 6, "y": 5 },
+    "found": false,
     "row": false,
     "img": {
         "x": 0,
@@ -787,6 +793,7 @@ const clues = [{
     "answer": "zero",
     "comment": "100% catie",
     "start": { "x": 10, "y": 2 },
+    "found": false,
     "row": false,
     "img": {
         "x": 0,
@@ -800,6 +807,7 @@ const clues = [{
     "answer": "Ranger",
     "comment": "Tongue deep in my dog",
     "start": { "x": 10, "y": 4 },
+    "found": false,
     "row": true,
     "img": {
         "x": 0,
@@ -813,6 +821,7 @@ const clues = [{
     "answer": "Lily",
     "comment": "zoomies",
     "start": { "x": 10, "y": 20 },
+    "found": false,
     "row": false,
     "img": null
 }, {
@@ -821,7 +830,8 @@ const clues = [{
     "answer": "Richard",
     "comment": "Shame on me for assuming a steryotype",
     "start": { "x": 9, "y": 7 },
-    "row": false,
+    "found": false,
+    "row": true,
     "img": null
 }, {
     "clue": "He forgot the condiments :(",
@@ -829,7 +839,8 @@ const clues = [{
     "answer": "Johnson",
     "comment": "I DONT WANT NONE OF THAT GAY CRAP IN MY CLASSROOM",
     "start": { "x": 0, "y": 7 },
-    "row": false,
+    "found": false,
+    "row": true,
     "img": {
         "x": 0,
         "y": 0,
@@ -842,6 +853,7 @@ const clues = [{
     "answer": "Erin",
     "comment": "Odd",
     "start": { "x": 16, "y": 0 },
+    "found": false,
     "row": false,
     "img": null
 }, {
@@ -850,6 +862,7 @@ const clues = [{
     "answer": "its_leaking",
     "comment": "It would have been so much better if you were there",
     "start": { "x": 4, "y": 10 },
+    "found": false,
     "row": false,
     "img": {
         "x": 0,
@@ -863,6 +876,7 @@ const clues = [{
     "answer": "sisterly_love",
     "comment": "",
     "start": { "x": 7, "y": 9 },
+    "found": false,
     "row": false,
     "img": null
 }, {
@@ -871,6 +885,7 @@ const clues = [{
     "answer": "charlie",
     "comment": "",
     "start": { "x": 1, "y": 18 },
+    "found": false,
     "row": false,
     "img": {
         "x": 0,
@@ -884,6 +899,7 @@ const clues = [{
     "answer": "fridays",
     "comment": "Every friday is Hawaiian friday.... duh",
     "start": { "x": 16, "y": 18 },
+    "found": false,
     "row": true,
     "img": {
         "x": 0,
@@ -897,6 +913,7 @@ const clues = [{
     "answer": "gtri",
     "comment": "Worked out in the end with summer school i guess",
     "start": { "x": 6, "y": 12 },
+    "found": false,
     "row": true,
     "img": null
 }, {
@@ -905,6 +922,7 @@ const clues = [{
     "answer": "ghp",
     "comment": "Blame it on covid /j",
     "start": { "x": 9, "y": 14 },
+    "found": false,
     "row": false,
     "img": null
 }, {
@@ -913,6 +931,7 @@ const clues = [{
     "answer": "isef",
     "comment": "I could have made a stovetop too /j",
     "start": { "x": 5, "y": 21 },
+    "found": false,
     "row": true,
     "img": {
         "x": 0,
@@ -926,6 +945,7 @@ const clues = [{
     "answer": "bees",
     "comment": "To my knowlege this is the only movie you love dearly enough to quote",
     "start": { "x": 1, "y": 12 },
+    "found": false,
     "row": true,
     "img": null
 }, {
@@ -934,6 +954,7 @@ const clues = [{
     "answer": "opossum",
     "comment": "not my fault",
     "start": { "x": 14, "y": 16 },
+    "found": false,
     "row": false,
     "img": {
         "x": 0,
@@ -947,6 +968,7 @@ const clues = [{
     "answer": "beach_volleyball",
     "comment": "",
     "start": { "x": 21, "y": 7 },
+    "found": false,
     "row": false,
     "img": null
 }, {
@@ -955,6 +977,7 @@ const clues = [{
     "answer": "infidelity",
     "comment": "Where the best and brightest people meet",
     "start": { "x": 1, "y": 23 },
+    "found": false,
     "row": true,
     "img": null
 }, {
@@ -963,6 +986,7 @@ const clues = [{
     "answer": "kozlowski",
     "comment": "Wish I would have had her as a teacher",
     "start": { "x": 8, "y": 2 },
+    "found": false,
     "row": true,
     "img": null
 }, {
@@ -971,6 +995,7 @@ const clues = [{
     "answer": "mollusks",
     "comment": "",
     "start": { "x": 4, "y": 0 },
+    "found": false,
     "row": false,
     "img": {
         "x": 0,
@@ -984,6 +1009,7 @@ const clues = [{
     "answer": "tjhill",
     "comment": "He better be the first person you hire with your buisness",
     "start": { "x": 12, "y": 18 },
+    "found": false,
     "row": false,
     "img": {
         "x": 0,
@@ -997,6 +1023,7 @@ const clues = [{
     "answer": "five_hundred_and_three",
     "comment": "I hate this kid /j",
     "start": { "x": 19, "y": 3 },
+    "found": false,
     "row": false,
     "img": {
         "x": 0,
@@ -1010,6 +1037,7 @@ const clues = [{
     "answer": "formula_one",
     "comment": "I only like colored cars",
     "start": { "x": 23, "y": 4 },
+    "found": false,
     "row": false,
     "img": null
 }, {
@@ -1018,6 +1046,7 @@ const clues = [{
     "answer": "mary_clark",
     "comment": "o7",
     "start": { "x": 17, "y": 7 },
+    "found": false,
     "row": false,
     "img": null
 }, {
@@ -1026,6 +1055,7 @@ const clues = [{
     "answer": "sock",
     "comment": "Still angry",
     "start": { "x": 3, "y": 1 },
+    "found": false,
     "row": true,
     "img": {
         "x": 0,
@@ -1034,11 +1064,12 @@ const clues = [{
         "src": "resources/photos/ur,socks_flatlay_medium,square,600x600-bg,f8f8f8.1.jpg"
     }
 }, {
-    "clue": "Robotics team game time: MARRY",
+    "clue": "Robotics team game time: marry",
     "hint": "not me :(",
     "answer": "Catie",
     "comment": "I'm heartbroken fyi",
     "start": { "x": 12, "y": 0 },
+    "found": false,
     "row": true,
     "img": {
         "x": 0,
@@ -1047,11 +1078,12 @@ const clues = [{
         "src": "resources/photos/IMG_82CBF9A1433B-1.jpeg"
     }
 }, {
-    "clue": "Robotics team Game time: FUCK",
+    "clue": "Robotics team Game time: fuck",
     "hint": "Do you really need a hint",
     "answer": "Tyler",
     "comment": "Jealous",
     "start": { "x": 11, "y": 11 },
+    "found": false,
     "row": false,
     "img": {
         "x": 0,
@@ -1060,11 +1092,12 @@ const clues = [{
         "src": "resources/photos/IMG_6BA260AE700E-1.jpeg"
     }
 }, {
-    "clue": "Robotics team game time: KILL",
+    "clue": "Robotics team game time: kill",
     "hint": "Prob deserve this",
     "answer": "ethan",
     "comment": "Id win the fight though so idk...",
     "start": { "x": 18, "y": 20 },
+    "found": false,
     "row": true,
     "img": {
         "x": 0,
@@ -1078,6 +1111,7 @@ const clues = [{
     "answer": "Daniel",
     "comment": "literally the worldiest man of us all",
     "start": { "x": 15, "y": 7 },
+    "found": false,
     "row": false,
     "img": {
         "x": 0,
@@ -1091,6 +1125,7 @@ const clues = [{
     "answer": "sabaton",
     "comment": "still not better than a good ol audiobook",
     "start": { "x": 1, "y": 10 },
+    "found": false,
     "row": false,
     "img": null
 }, {
@@ -1099,6 +1134,7 @@ const clues = [{
     "answer": "polka",
     "comment": "not my groove lol",
     "start": { "x": 2, "y": 3 },
+    "found": false,
     "row": true,
     "img": {
         "x": 0,
@@ -1111,7 +1147,8 @@ const clues = [{
     "hint": "facebook still a thing apparently",
     "answer": "faang",
     "comment": "With all those leetcode questions you are doing, this is us at FAANG",
-    "start": { "x": 0, "y": 0 },
+    "start": { "x": 0, "y": 20 },
+    "found": false,
     "row": true,
     "img": {
         "x": 0,
@@ -1125,6 +1162,7 @@ const clues = [{
     "answer": "Elon",
     "comment": "It won't be too late to work for/with him don't worry",
     "start": { "x": 1, "y": 5 },
+    "found": false,
     "row": false,
     "img": {
         "x": 0,
@@ -1138,7 +1176,8 @@ const clues = [{
     "answer": "tesla",
     "comment": "hats, belts, underwear, ties, you name it...",
     "start": { "x": 1, "y": 14 },
-    "row": false,
+    "found": false,
+    "row": true,
     "img": {
         "x": 0,
         "y": 0,
@@ -1151,7 +1190,8 @@ const clues = [{
     "answer": "spacex",
     "comment": "Isn't this why you're going into ASE?",
     "start": { "x": 15, "y": 23 },
-    "row": false,
+    "found": false,
+    "row": true,
     "img": null
 }];
 //creates a text tile
@@ -1182,12 +1222,35 @@ function fillBoard() {
     }
 }
 
+//https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+function shuffle(array) {
+    let currentIndex = array.length,
+        randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]
+        ];
+    }
+
+    return array;
+}
+
 function populateClues() {
+    shuffle(clues);
     for (let i = 0; i < clues.length; i++) {
         const clue = document.createElement("div");
         clue.innerHTML = (i + 1) + ") " + clues[i].clue;
         clue.setAttribute("class", "clue");
         clue.addEventListener("click", goTo, false);
+        boardLetters[clues[i].start.y][clues[i].start.x] = (i + 1);
         (clues[i].row ? acrossCollum : verticleCollum).appendChild(clue);
     }
 }
@@ -1273,6 +1336,27 @@ function highlight(row) {
     }
 }
 
+function correct(obj) {
+    obj.found = true;
+    alert("correct answer");
+}
+
+function checkBoard() {
+    console.log("checj");
+    const children = board.children;
+    for (let i = 0; i < clues.length; i++) {
+        if (clues[i].found) continue;
+        for (j = 0; j < clues[i].answer.length; j++) {
+            if (children[getIndex(clues[i].start.x + (clues[i].row ? j : 0), clues[i].start.y + (clues[i].row ? 0 : j))].innerHTML != clues[i].answer[j]) {
+                break;
+            }
+            if (j == clues[i].answer.length - 1) {
+                correct(clues[i]);
+            }
+        }
+    }
+}
+
 function input(e) {
     clearAll();
     if (currentFocus != null) {
@@ -1288,17 +1372,20 @@ function input(e) {
     currentFocus = e.target;
     currentFocus.style.backgroundColor = "gray";
     const info = getInfo(currentFocus);
-    console.log([info.x, info.y]);
     highlight(row);
 }
 
 function goTo(e) {
     e = e.target;
-    const num = parseInt(e.innerHTML[0]) - 1;
+    let num = parseInt(e.innerHTML[0]) - 1;
+    if (e.innerHTML[1] != ")") {
+        num = parseInt(e.innerHTML[0] + e.innerHTML[1]) - 1;
+    }
     const info = clues[num];
     currentFocus = board.children[getIndex(info.start.x, info.start.y)];
     row = info.row;
     highlight(row);
+    scroll(0, 0);
 }
 
 /*
@@ -1423,6 +1510,7 @@ document.onkeyup = function(e) {
     } else {
         moveFocusDown(info);
     }
+    checkBoard();
 }
 
 function getInfo(focus) {
@@ -1516,6 +1604,6 @@ function addImage(info) {
 // setup page
 
 createBoard();
-fillBoard();
 addGame();
 populateClues();
+fillBoard();
