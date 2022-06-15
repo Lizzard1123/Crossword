@@ -103,8 +103,14 @@ body {
 
 img {
     position: absolute;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.activated {
+    visibility: visible;
     opacity: 1;
-    transition: opacity 0s 2s, opacity 2s linear;
+    transition: opacity 2s linear;
 }
 
 .fadeOut {
@@ -139,4 +145,31 @@ img {
     transform: translateX(350px);
     transition-duration: 1s;
     transition-property: transform;
+}
+
+#popup {
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    width: 50%;
+    background-color: cornflowerblue;
+    border: 5px solid rgb(44, 44, 44);
+    border-radius: 30px;
+    z-index: 2;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+#confirm {
+    width: 20%;
+    margin: auto;
+    border: 3px solid black;
+    background-color: rgb(178, 184, 207);
+    font-size: bold;
+    text-align: center;
+}
+
+li {
+    padding-bottom: 10px;
 }

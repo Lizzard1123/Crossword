@@ -1656,6 +1656,7 @@ function moveFocusLeft(focus) {
 
 
 document.onkeyup = function(e) {
+    if (popup) return;
     if (e.key.length != 1 && e.key != " ") return;
     let letter = e.key.charAt(0);
     if ((letter.toLowerCase() == letter.toUpperCase()) && e.key != " ") return;
@@ -1674,6 +1675,7 @@ document.onkeyup = function(e) {
     checkBoard();
 }
 
+
 function getInfo(focus) {
     const obj = {
         "x": parseInt(focus.style.left) / tileSize,
@@ -1687,6 +1689,7 @@ function squareAvalible(x, y) {
 }
 
 document.onkeydown = function(e) {
+    if (popup) return;
     if (currentFocus == null) return;
     e.preventDefault();
     const focus = getInfo(currentFocus);
@@ -1733,6 +1736,7 @@ document.onkeydown = function(e) {
     }
 }
 
+
 //visuals for collage
 
 const changeButton = document.getElementById("changeButton");
@@ -1752,6 +1756,11 @@ changeButton.onclick = function() {
 
 let currentImage = null;
 
+function modifyImg(e) {
+    currentImage = e.target;
+    current = findImgIndex(e.target.src);
+}
+
 function addImage(info) {
     if (info.img == null) return;
     info = info.img;
@@ -1765,6 +1774,10 @@ function addImage(info) {
     image.style.left = info.x + "px";
     image.style.transform = "rotate(" + info.r + "deg)";
     image.style.zIndex = info["z-index"];
+    //image.addEventListener("click", modifyImg, false);
+    window.setTimeout(() => {
+        image.setAttribute("class", "activated");
+    }, 500);
     photoBoard.appendChild(image);
 }
 
@@ -1778,10 +1791,32 @@ function addComment(obj) {
     }, 20000);
 }
 
+function win() {
+    popup = true;
+    popupBox.setAttribute("class", (!popup ? "fadeOut" : "fadeIn"));
+    popupBox.innerHTML = "<ul><li>Congrats!</li><li>I didn't put the code in here so just text me the pic of the collage lol</li></ul><div id=\"confirm\"> Got it </div>";
+    document.getElementById("confirm").onclick = addFunctionalityToThisStupidBtn;
+}
+
+function checkWin() {
+    let won = true;
+    for (let i = 0; i < clues.length; i++) {
+        won = won && clues[i].found;
+    }
+    if (won) win();
+}
+
+let first = true;
+
 function correct(obj) {
+    if (first) {
+        first = false;
+        addImageTutorial();
+    }
     obj.found = true;
     addComment(obj);
     addImage(obj);
+    checkWin();
 }
 
 function checkBoard() {
@@ -1799,6 +1834,40 @@ function checkBoard() {
         }
     }
 }
+
+//popup
+const popupBox = document.getElementById("popup");
+let popup = true;
+
+function addFunctionalityToThisStupidBtn() {
+    popup = false;
+    popupBox.setAttribute("class", (!popup ? "fadeOut" : "fadeIn"));
+}
+
+document.getElementById("confirm").onclick = addFunctionalityToThisStupidBtn;
+
+function addImageTutorial() {
+    popup = true;
+    popupBox.setAttribute("class", (!popup ? "fadeOut" : "fadeIn"));
+    popupBox.innerHTML = "<ul><li>In the upper righthand side of your screen, comments will appear</li><li>Most of the time, there will be an image associated with the correct response</li><li>finish the collage to unlock the code</li></ul><div id=\"confirm\"> Got it </div>";
+    document.getElementById("confirm").onclick = addFunctionalityToThisStupidBtn;
+}
+
+function getHintFromNum(input) {
+    if (input.value < 0 || input.value > 40) return;
+    popupBox.innerHTML = clues[input.value - 1].hint + "<div id=\"confirm\"> Got it </div>";
+    document.getElementById("confirm").onclick = addFunctionalityToThisStupidBtn;
+}
+
+function getHint() {
+    popup = true;
+    popupBox.setAttribute("class", (!popup ? "fadeOut" : "fadeIn"));
+    popupBox.innerHTML = "Input the number you want a hint for cheater </br> Then press enter </br><input type=\"number\" onchange=\"getHintFromNum(this)\">"
+}
+
+document.getElementById("getHint").onclick = getHint;
+
+
 
 // setup page
 
@@ -1824,6 +1893,16 @@ let cx = 0;
 let cy = 0;
 let cr = 0;
 let cz = 0;
+
+function findImgIndex(src) {
+    for (let i = 0; i < clues.length; i++) {
+        if (clues[i].img == null) continue;
+        if (clues[i].img.src == src) {
+            current = i;
+            break;
+        }
+    }
+}
 
 document.onkeydown = function(e) {
     e.preventDefault();
